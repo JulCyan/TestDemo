@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let query = location.search;
+      console.log(query);
+      let searchParams = new URLSearchParams(query);
+      console.log(searchParams.toString());
+      if (searchParams.has("name")) {
+        console.log(searchParams.get("name"));
+      }
+    </script>
+  </body>
+</html>

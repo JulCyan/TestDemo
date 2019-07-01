@@ -1,0 +1,4 @@
+.g-mn form>input {
+    /* 更换背景图片 */
+    background-image: url(../img/search.png); 
+}

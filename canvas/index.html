@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <img id="preview" src="" />
+    <img id="source" src="" style="display: none;" />
+  </body>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var source = document.getElementById("source");
+    var preview = document.getElementById("preview");
+
+    source.onload = function() {
+      var width = source.width;
+      var height = source.height;
+      var context = canvas.getContext("2d");
+
+      // draw image params
+      var sx = 0;
+      var sy = 0;
+      var sWidth = width;
+      var sHeight = height;
+      var dx = 0;
+      var dy = 0;
+      var dWidth = width;
+      var dHeight = height;
+      var quality = 0.92;
+
+      canvas.width = width;
+      canvas.height = height;
+
+      context.drawImage(
+        source,
+        sx,
+        sy,
+        sWidth,
+        sHeight,
+        dx,
+        dy,
+        dWidth,
+        dHeight
+      );
+
+      var dataUrl = canvas.toDataURL("image/jpeg", quality);
+      preview.src = dataUrl;
+    };
+
+    source.src = "down.jpg";
+  </script>
+</html>
